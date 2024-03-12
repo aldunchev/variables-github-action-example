@@ -41,3 +41,18 @@ jobs:
           title: Update tokens from Figma
           body: 'Update tokens from Figma from file: https://www.figma.com/file/${{ github.event.inputs.file_key }}'
           branch: update-tokens
+
+  copy_tokens:
+    runs-on: ubuntu-latest
+    needs: [sync-figma-to-tokens]
+    steps:
+      - uses: andstor/copycat-action@v3.2.4
+        with:
+          personal_token: ${{ secrets.GH_ACTION_VARIABLES_SYNC_FIGMA_TOKEN }}
+          src_branch: main
+          src_path: tokens_new/.
+          dst_owner: aldunchev
+          dst_repo_name: FigmaVariablesTransform
+          dst_branch: main
+          dst_path: tokens/.
+          commit_message: copy css tokens
