@@ -50,7 +50,7 @@ jobs:
         with:
           personal_token: ${{ secrets.GH_ACTION_VARIABLES_SYNC_FIGMA_TOKEN }}
           src_branch: main
-          src_path: tokens_new/.
+          src_path: tokens/.
           dst_owner: aldunchev
           dst_repo_name: FigmaVariablesTransform
           dst_branch: main
