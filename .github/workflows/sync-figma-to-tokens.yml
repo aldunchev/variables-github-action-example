@@ -48,7 +48,7 @@ jobs:
     steps:
       - uses: andstor/copycat-action@v3.2.4
         with:
-          personal_token: ${{ secrets.GH_ACTION_VARIABLES_SYNC_FIGMA_TOKEN }}
+          personal_token: ${{ secrets.FIGMAVARIABLES }}
           src_branch: main
           src_path: tokens/.
           dst_owner: aldunchev
