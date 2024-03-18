@@ -1,0 +1,22 @@
+name: Copy tokens to remote repo
+
+on:
+  workflow_dispatch:
+  push:
+    paths: ["tokens"]
+    branches: main
+
+jobs:
+  copy_tokens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: andstor/copycat-action@v3.2.4
+        with:
+          personal_token: ${{ secrets.FIGMAVARIABLES }}
+          src_branch: main
+          src_path: tokens/.
+          dst_owner: aldunchev
+          dst_repo_name: tailwind-figma-variables
+          dst_branch: main
+          dst_path: tokens/.
+          commit_message: Copy css tokens
