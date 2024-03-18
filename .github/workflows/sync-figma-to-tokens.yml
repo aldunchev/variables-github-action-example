@@ -52,7 +52,7 @@ jobs:
           src_branch: main
           src_path: tokens/.
           dst_owner: aldunchev
-          dst_repo_name: FigmaVariablesTransform
+          dst_repo_name: tailwind-figma-variables
           dst_branch: main
           dst_path: tokens/.
-          commit_message: copy css tokens
+          commit_message: Copy css tokens
