@@ -1,13 +1,13 @@
 name: Copy tokens to remote repo
 
 on:
-  workflow_dispatch:
-  push:
-    paths: ["tokens"]
-    branches: main
+  pull_request:
+    types:
+      - closed
 
 jobs:
   copy_tokens:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: andstor/copycat-action@v3.2.4
